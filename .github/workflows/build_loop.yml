@@ -297,7 +297,8 @@ jobs:
           2hlollipop \
           profiles \
           basal_lock \
-          live_activity
+          live_activity \
+          export SCRIPT_BRANCH=prelim_ai_food && export PATCH_BRANCH=prelim_ai_food && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/loopandlearn/lnl-scripts/$SCRIPT_BRANCH/CustomizationSelect.sh)" food_search
 
           # the final customization listed above CANNOT have a continuation character
           # more customizations can be pasted after this line   
@@ -316,10 +317,6 @@ jobs:
       # Install project dependencies
       - name: Install Project Dependencies
         run: bundle install
-        
-      # Install Food Search
-      - name: Install Food Search
-        run: export SCRIPT_BRANCH=prelim_ai_food && export PATCH_BRANCH=prelim_ai_food && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/loopandlearn/lnl-scripts/$SCRIPT_BRANCH/CustomizationSelect.sh)" food_search
 
       # Sync the GitHub runner clock with the Windows time server (workaround as suggested in https://github.com/actions/runner/issues/2996)
       - name: Sync clock
